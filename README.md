@@ -1,4 +1,19 @@
 <h1 style="text-align:center;">DB Schema</h1>
-<br/>
-![image](https://github.com/digit987/flight_booking/assets/15653107/01b9e7eb-fdd2-43ba-a499-442a1af8b884)
 
+``` python
+class Flight(models.Model):
+    flight_number = models.CharField(max_length=20)
+    departure_date = models.DateField()
+    departure_time = models.TimeField()
+
+    def __str__(self):
+        return f"Flight {self.flight_number} - {self.departure_date} {self.departure_time}"
+
+class Booking(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    flight = models.ForeignKey(Flight, on_delete=models.CASCADE)
+    seat_number = models.CharField(max_length=60, default=1)
+
+    def __str__(self):
+        return f"Booking for customer {self.user.username} on flight {self.flight.flight_number}"
+```
