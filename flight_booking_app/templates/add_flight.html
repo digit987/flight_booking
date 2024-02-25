@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Flight</title>
+</head>
+<body>
+    <h2>Add a New Flight</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="flight_number">Flight Number:</label>
+        <input type="text" id="flight_number" name="flight_number"><br>
+        <label for="departure_date">Departure Date:</label>
+        <input type="date" id="departure_date" name="departure_date"><br>
+        <label for="departure_time">Departure Time:</label>
+        <input type="time" id="departure_time" name="departure_time"><br>
+        <button type="submit">Add Flight</button>
+    </form>
+</body>
+</html>

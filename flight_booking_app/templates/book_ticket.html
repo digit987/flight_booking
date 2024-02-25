@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Ticket</title>
+</head>
+<body>
+    <h2>Book Ticket for Flight {{ flight.flight_number }}</h2>
+    <p>Available Seats: {{ available_seats }}</p>
+    
+    {% if available_seats > 0 %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Book Ticket</button>
+    </form>
+    {% else %}
+    <p>Sorry, all seats on this flight are booked.</p>
+    {% endif %}
+</body>
+</html>
